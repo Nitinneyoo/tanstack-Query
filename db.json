@@ -1,0 +1,42 @@
+{
+    "posts" : [
+        {
+            "id" : "1",
+            "title" : "Ashwanee gupta",
+            "body" : "A Full Stack Developer At Anscer Robotics"
+        },
+        {
+            "id" : "2",
+            "title" : "Ankit Singh",
+            "body" : "A Front-End Developer At Anscer Robotics"
+        },
+        {
+            "id" : "3",
+            "title" : "Shyam",
+            "body" : "A Backend-Developer Developer At Anscer Robotics"
+        },
+        {
+            "id" : "4",
+            "title" : "Nitin Singh",
+            "body" : "A Front-End Developer Intern At Anscer Robotics"
+        }
+    ],
+    "todos" : [
+        {
+            "id" : "1",
+            "title" : "Go TO Gym"
+        },
+        {
+            "id" : "2",
+            "title" : "Cricket Match On Sunday"
+        },
+        {
+            "id" : "3",
+            "title" : "EveryDay Practise At 07:00 am In the Society Nets"
+        },
+        {
+            "id" : "4",
+            "title" : "Improve Bowling Speed And Accuracy"
+        }
+    ]
+}

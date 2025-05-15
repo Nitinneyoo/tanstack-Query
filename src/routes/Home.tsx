@@ -2,17 +2,21 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
+interface Todo {
+  id: number;
+  title: string;
+}
+
 export const Route = createFileRoute("/Home")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading, isError, error } = useQuery<Todo[], Error>({
     queryKey: ["todos"],
-    queryFn: () => {
-      return axios.get("http://localhost:4000/todos");
-    },
+    queryFn: () => axios.get<Todo[]>("http://localhost:4000/todos").then(res => res.data),
   });
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -30,19 +34,19 @@ function RouteComponent() {
   }
 
   return (
-     <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8">
       <div className="flex flex-col gap-6 justify-center">
-        {data?.data.map(todos => (
+        {data?.map(todo => (
           <div
-            key={todos.id}
+            key={todo.id}
             className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300 hover:bg-gray-400 cursor-pointer"
           >
             <h3 className="text-xl font-semibold text-blue-900 mb-2 flex justify-center items-center">
-              {todos.title}
+              {todo.title}
             </h3>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
